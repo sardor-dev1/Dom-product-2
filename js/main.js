@@ -1,5 +1,5 @@
 let API_URL = "https://dummyjson.com/users";
-
+let loading = document.querySelector(".loading")
 let wrapCards = document.querySelector(".wrapper");
 
 async function getData(URL) {
@@ -42,3 +42,23 @@ function mapData(about) {
     wrapCards.innerHTML = usersData;
   });
 }
+
+
+function createLoad(load) {
+  let loadItems = "";
+  for (let i = 0; i < load; i++) {
+    loadItems += `
+        <div class="loading__image">
+            <div class="loading__img bg__animation"></div>
+            <div class="loading__title bg__animation"></div>
+            <div class="loading__title bg__animation"></div>
+            <div class="loading__title bg__animation"></div>
+            <div class="loading__title bg__animation"></div>
+        </div>
+        `;
+  }
+  loading.innerHTML = loadItems;
+}
+
+
+createLoad(8)
